@@ -54,6 +54,11 @@ Running the server
 - owner can manage feed price, subscribers, subscription duration and payout balance
 - a basic python server for updating the feed info
 
+## <a name="layout"></a> Page Layout
+- Landing page: /
+- Admin page: /admin
+- Tracking page: /track/0x00000
+
 ## <a name="about"></a> About
 
 This DApp was built as a starting point for deploying and operating price feeds on Ethereum. The DApp could potentially modified to meet the needs of almost any price feed.
@@ -61,4 +66,4 @@ This DApp was built as a starting point for deploying and operating price feeds 
 ## <a name="todo"></a> TODO
 - Decimal number support for feed info
 - Multi-type feed data (e.g. "gold", "silver" etc.)
-- Contact form (make active)
+- Setup contact form (make active)
