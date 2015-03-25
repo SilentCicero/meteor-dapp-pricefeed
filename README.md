@@ -1,7 +1,7 @@
 # meteor-dapp-pricefeed
-MeteorJS price feed DApp - a starting point for owning and operating a price feed on Ethereum.
+A MeteorJS price feed DApp - for owning and operating a price feed on Ethereum.
 
-** Note this DApp is in alpha, and is still under heavy development.
+** Note this DApp is in Alpha, and is under heavy development.
 
 ## <a name="installation"></a> Installation
 
@@ -38,7 +38,7 @@ Wait for mining, refresh, then start using the DApp!
 
 Edit server.py
 
-    change vars CONTRACT_ADDRESS, OWNER_ADDRESS, and JSON_RPC_URL to the appropriate values
+    change vars CONTRACT_ADDRESS, OWNER_ADDRESS, and JSON_RPC_URL to appropriate values
 
 Running the server
 
@@ -52,13 +52,13 @@ Running the server
 - subscribable
 - renewable subscriptions
 - owner can manage feed price, subscribers, subscription duration and payout balance
-- a basic server.py for updating the feed info
+- a basic python server for updating the feed info
 
 ## <a name="about"></a> About
 
-This DApp was built as a starting point for operating price feeds on Ethereum.
+This DApp was built as a starting point for deploying and operating price feeds on Ethereum. The DApp could potentially modified to meet the needs of almost any price feed.
 
 ## <a name="todo"></a> TODO
-- Decimal numbers for feed into
+- Decimal number support for feed info
 - Multi-type feed data (e.g. "gold", "silver" etc.)
 - Contact form (make active)
