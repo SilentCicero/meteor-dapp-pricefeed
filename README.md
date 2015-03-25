@@ -49,7 +49,8 @@ Running the server
 - landing page
 - admin page (a dashboard for contract owner)
 - tracking page (to track subscriptions)
-- subscribable
+- can subscribe an address
+- only subscribers can access the feed data
 - renewable subscriptions
 - owner can manage feed price, subscribers, subscription duration and payout balance
 - a basic python server for updating the feed info
@@ -61,7 +62,7 @@ Running the server
 
 ## <a name="about"></a> About
 
-This DApp was built as a starting point for deploying and operating price feeds on Ethereum. The DApp could potentially modified to meet the needs of almost any price feed.
+This DApp was built as a starting point for deploying and operating price feeds on Ethereum. The DApp could potentially modified to meet the needs of almost any price feed. Presently, I called it "Gold Price Today*" (my gold price feed).
 
 ## <a name="todo"></a> TODO
 - Decimal number support for feed info
