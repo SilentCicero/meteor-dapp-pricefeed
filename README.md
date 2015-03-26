@@ -9,7 +9,7 @@ A MeteorJS price feed DApp - for operating price feeds on Ethereum.
 
 1. Clone this repo
 
-  `git clone https://github.com/SilentCicero/meteor-dapp-pricefeed.git`
+  `git clone http://github.com/SilentCicero/meteor-dapp-pricefeed.git`
 
 2. Remove `.git`
 
