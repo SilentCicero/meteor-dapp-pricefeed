@@ -28,11 +28,11 @@ Start your app using meteor
 
 Go to http://localhost:3000/admin
 
-  click `'Deploy PriceFeed Contract'` and copy the new address
+  - click `'Deploy PriceFeed Contract'` and copy the new address
 
 Edit client/lib/feedConfig.js
 
-  change `Feed.address` to your new address
+  - change `Feed.address` to the new address
 
 Wait for mining, refresh, then start using the DApp!
 
@@ -40,7 +40,7 @@ Wait for mining, refresh, then start using the DApp!
 
 Edit server.py
 
-  change vars `CONTRACT_ADDRESS` and `OWNER_ADDRESS` to the appropriate values
+  - change vars `CONTRACT_ADDRESS` and `OWNER_ADDRESS` to the appropriate values
 
 Running the server
 
