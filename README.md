@@ -1,5 +1,5 @@
 # meteor-dapp-pricefeed
-A MeteorJS price feed DApp - for owning and operating price feeds on Ethereum.
+A MeteorJS price feed DApp - for operating price feeds on Ethereum.
 
 <img src="app/public/images/screen.jpg" />
 
