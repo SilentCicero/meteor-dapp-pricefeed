@@ -3,7 +3,7 @@ A MeteorJS price feed DApp - for operating price feeds on Ethereum.
 
 <img src="app/public/images/screen.jpg" />
 
-** Please note that this DApp is still in Alpha.
+** Please note that this DApp is still in Alpha (may be bug with subscription, fixing today).
 
 ## <a name="installation"></a> Installation
 
