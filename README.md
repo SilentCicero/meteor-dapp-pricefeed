@@ -62,6 +62,9 @@ Running the server
 - Admin page: /admin
 - Tracking page: /track/0x00000
 
+## <a name="about"></a> Soldity
+Original SOL by Gavin Wood <g@ethdev.com>
+
 ## <a name="about"></a> About
 
 This DApp was built as a starting point for deploying and operating price feeds on Ethereum. The DApp could potentially be modified to meet the needs of almost any price feed. Presently, I called it "Gold Price Today*" (which will be my gold price feed).
