@@ -71,4 +71,6 @@ Original SOL by Gavin Wood <g@ethdev.com>
 ## <a name="todo"></a> TODO
 - Decimal number support for feed info
 - Multi-type feed data (e.g. "gold", "silver" etc.)
+- Better error handling
+- Trigger event on info update
 - Setup contact form (make active)
