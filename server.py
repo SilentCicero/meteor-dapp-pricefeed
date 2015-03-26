@@ -14,7 +14,7 @@ DATA_URL = "https://www.quandl.com/api/v1/datasets/BUNDESBANK/BBK01_WT5511.json?
 # The Frequency (in seconds) that data will be pulled and the feed updated.
 FREQUENCY = 3600
 # The JSON RPC URL to your Ethereum node
-JSON_RPC_URL = 'http://172.16.170.128:8545/'
+JSON_RPC_URL = 'http://localhost:8545/'
 
 '''
 Ethereum RLP Methods from pyethereum
