@@ -117,8 +117,8 @@ Feed Set Subscription Price
 Feed.setPrice = function(price){
     var wei_value = web3.toWei(price, LocalStore.get('etherUnit'));
     this.contract.sendTransaction({from: web3.eth.accounts[0]}).setPrice(wei_value);
-    return wei_value;
     console.log('Set price to: ', wei_value);
+    return wei_value;
 };
 
 /**
@@ -129,8 +129,8 @@ Feed Set Subscription Period
 
 Feed.setDuration = function(period){
     this.contract.sendTransaction({from: web3.eth.accounts[0]}).setDuration(parseInt(period) * 24 * 60 * 60);
-    return period;
     console.log('Set period to: ', period);
+    return period;
 };
 
 /**
