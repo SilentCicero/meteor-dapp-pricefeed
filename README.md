@@ -34,7 +34,7 @@ Edit client/lib/feedConfig.js
 
   - change `Feed.address` to the new address
 
-Wait for mining, refresh, then start using the DApp!
+Wait for mining, refresh, enjoy!
 
 ## <a name="server"></a> Server Deployment
 
@@ -66,7 +66,7 @@ Running the server
 
 This DApp is a starting point for deploying and operating price feeds on Ethereum. It could potentially be modified to meet the needs of almost any price feed. Presently, the default title is "Gold Price Today*" (which will be my gold price feed).
 
-Original SOL by Gavin Wood <g@ethdev.com>
+<a href="https://github.com/ethereum/dapp-bin/blob/master/pricefeed/pricefeed.sol">Original SOL</a> by Gavin Wood
 
 ## <a name="todo"></a> TODO
 - Decimal number support for feed info
