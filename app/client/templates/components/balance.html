@@ -1,0 +1,16 @@
+<template name="components_balance">
+    <div class="panel panel-default panel-dapp">
+        <div class="panel-heading">{{i18n 'dapp.components.balance.header'}} <a href="/admin#" id="switchBalanceView" class="text-muted float-right text-lowercase" style="font-size: 16px; line-height: 30px;">payout</a></div>
+        <div class="panel-body">
+            {{#if $.Session.get 'balanceView'}}
+            <small>{{i18n 'dapp.components.balance.earned'}}</small>
+            <br/>
+            <h2>{{$.Session.get 'balance'}} <span style="font-size: 14px;">ether</span> </h2>
+            {{else}}                        
+            <p>{{i18n 'dapp.components.balance.payout'}}</p>
+            <input type="text" class="form-control" placeholder="Payout Address" id="payout_address" style="margin-bottom: 20px;">
+            <input type="button" id="payout" class="btn btn-primary btn-lg" value="{{i18n 'dapp.app.buttons.payout'}}" /> 
+            {{/if}}
+        </div>
+    </div>
+</template>

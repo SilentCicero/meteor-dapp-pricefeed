@@ -1,0 +1,18 @@
+<template name="components_checkSubscription">
+    <div class="panel panel-default panel-dapp">
+        <div class="panel-heading">{{i18n 'dapp.components.checkSubscription.header'}}</div>
+        <div class="panel-body">
+            {{#if $.Session.equals 'checkSubscription' ''}}
+            <small>{{i18n 'dapp.components.checkSubscription.description'}}</small>
+            <br><br>
+            <input type="text" class="form-control" placeholder="{{i18n 'dapp.app.placeholders.subscriptionAddress'}}" id="subscription_address">
+            <br><br>
+            <input type="button" id="check_subscription" class="btn btn-lg" value="{{i18n 'dapp.app.buttons.checkSubscription'}}" />
+            {{else}}
+            <p>{{i18n 'dapp.components.checkSubscription.subscribed'}}</p>
+            <h5>{{$.Session.get 'checkSubscriptionAddress'}}</h5>
+            <p>{{i18n 'dapp.components.checkSubscription.timeout'}} {{$.Session.get 'checkSubscription'}}</p>
+            {{/if}}
+        </div>
+    </div>
+</template>

@@ -1,0 +1,7 @@
+<template name="components_dashbar">
+    <div class="row-fluid" style="margin-top: 80px; height: 50px;">
+        <div class="col-lg-12">
+            <h4>{{i18n 'dapp.admin.text.header'}} <span class="float-right no-weight" style="font-size: 14px; text-transform: none;">{{i18n 'dapp.app.headers.current'}}: {{$.Session.get 'info'}} {{feed.denomination}}</span> <span class="float-right no-weight" style="font-size: 14px; text-transform: none; margin-right: 20px;">{{i18n 'dapp.app.headers.balance'}}: {{$.Session.get 'balance'}} ether</span></h4>
+        </div>
+    </div>
+</template>

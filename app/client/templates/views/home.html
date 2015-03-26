@@ -1,0 +1,278 @@
+<template name="views_home">
+    <!-- Header -->
+    <header id="page-top">
+        <div class="container">
+            <div class="intro-text">
+                <div class=""><img src="images/coin.png" style="max-width: 200px; margin-bottom: 25px;" /></div>
+                <div class="intro-lead-in">{{i18n 'dapp.landing.text.subHeader'}}</div>
+                <div class="intro-heading">{{i18n 'dapp.landing.text.header'}}</div>
+                <a href="#subscribe_today" class="page-scroll btn-xl">{{i18n 'dapp.app.buttons.subscribeToday'}}</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">{{i18n 'dapp.services.text.header'}}</h2>
+                    <h3 class="section-subheading text-muted">{{i18n 'dapp.services.text.subHeader'}}</h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-bar-chart fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">{{i18n 'dapp.services.text.data.header'}}</h4>
+                    <p class="text-muted">{{i18n 'dapp.services.text.data.description'}}</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">{{i18n 'dapp.services.text.reliable.header'}}</h4>
+                    <p class="text-muted">{{i18n 'dapp.services.text.reliable.description'}}</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-check-square fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">{{i18n 'dapp.services.text.subscription.header'}}</h4>
+                    <p class="text-muted">{{i18n 'dapp.services.text.subscription.description'}}</p>
+                </div>
+            </div>
+        </div>
+    </section>    
+
+    <!-- Feed Section -->
+    <section id="feed" class="bg-darkest-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-default panel-dapp">
+                        <div class="panel-body">
+                            <h1 class="text-center">{{i18n 'dapp.feed.text.contract.header'}}</h1>                       
+                            <small class="text-muted text-center" style="width: 100%;">{{i18n 'dapp.feed.text.contract.subHeader'}}</small>
+                            
+                            <h4>{{i18n 'dapp.app.headers.address'}}</h4>
+                            <input type="text" value="{{feed.address}}" disabled class="form-control" />
+                            <hr />
+                            <h4>{{i18n 'dapp.app.headers.hex'}}</h4>
+                            <input type="text" value="{{feed.hex}}" disabled class="form-control" />
+                            <hr />
+                            <h4 style="margin-top: 20px;">{{i18n 'dapp.app.headers.txhash'}}</h4>
+                            <input type="text" value="{{feed.tx_hash}}" disabled class="form-control" />
+                            <hr />
+                            <h4>{{i18n 'dapp.app.headers.ourContract'}}</h4>
+                            <textarea disabled class="form-control bg-light-gray">
+// sol PriceFeed
+// Subscription based, lorded, price feed
+// @authors:
+// Nick Dodson <thenickdodson@gmail.com>
+// a simple integer price feed contract that is owned, priced, and can be subscribed
+// to for a certain duration.
+// usage:
+// update info using the set method, users can subscribe their contract address
+// with the subscirbe method, and get info if subscribed through the get function
+contract Owned {
+    function Owned() { owner = msg.sender; }
+    modifier isOwner { if(msg.sender == owner) _ }
+    address owner;
+}
+// contact Priced, allow owner to set price (setPrice and contract 
+// to use price (price) or make a method have a price (hasPrice)
+contract Priced is Owned {
+    function Priced(uint p) { price = p; } 
+    function setPrice(uint p) isOwner { price = p; }
+    modifier hasPrice() { if(msg.value >= price) _ }
+    uint public price;
+}
+// contact Duration, allows a duration variable to be set by owner
+// (setDuration) and used (duration)
+contract Duration is Owned {
+    function Duration(uint d) { duration = d; }
+    function setDuration(uint d) isOwner { duration = d; }
+    uint public duration;
+}
+// contact TimeSubscription allows a user to subscribe an
+// address for a set amount of time for a price (subscribe) 
+contract TimeSubscription is Owned, Priced(1 ether), Duration(2592000) { // 30 days
+    function subscribe(address addr) hasPrice { // Can topup
+        if(subscribers[addr] == 0){
+            numSubscribed += 1;
+            subscribers[addr] = now + duration;
+        }else{
+            if(subscribers[addr] > now)
+                subscribers[addr] += duration;
+            else
+                subscribers[addr] = now + duration;
+        }
+    }
+    uint public numSubscribed = 0;
+    modifier hasSubscribed { if(subscribers[msg.sender] > now 
+        || msg.sender == owner) _ }
+    mapping (address => uint) public subscribers; //addr to timelimit
+}
+// contact Mortal allows the owner to kill the contract at any time
+// (kill)
+contract Mortal is Owned {
+    function kill() isOwner { suicide(owner); }
+}
+// contact Named allows the contract to be named
+contract Named is Owned, Mortal {
+    function named(bytes32 name) {
+    }
+}
+// contact SimpleAccount allows a very basic account system, so that a balance
+// can be monitered and payed out by the owner.
+contract SimpleAccount is Owned {
+    function payout(address addr) isOwner {
+        addr.send(balance);
+        balance = 0;
+    }
+    uint public balance;
+}
+// usage:
+// PriceFeed(p).set(newInfo)
+// PriceFeed(p).get() 
+// PriceFeed(p).subscribe(address) 
+contract PriceFeed is Owned, Mortal, TimeSubscription, SimpleAccount {
+   function set(uint newInfo) isOwner {
+      info = newInfo;
+   }
+   function subscribe(address addr){
+       if(msg.value >= price){
+           TimeSubscription.subscribe(addr);
+           balance += msg.value;
+       }
+   }
+   function get() hasSubscribed constant returns(uint r) { return info; }
+   uint private info;
+}
+                            </textarea>
+                            <hr />
+                            <h4>{{i18n 'dapp.app.headers.exampleContract'}}</h4>
+                            <textarea disabled class="form-control bg-light-gray">contract PriceFeed{function get()constant returns(uint256 r){}}
+                
+contract MySmartContract {    
+    function usePriceFeed() {        
+        address FeedAddress = {{feed.address}};  
+        uint latestGoldPrice = PriceFeed(FeedAddress).get();    
+    }
+}</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="panel panel-default panel-dapp">
+                        <div class="panel-body  text-center">
+                            <h1 class="text-center">{{i18n 'dapp.feed.text.feed.header'}}</h1>                       
+                            <small class="text-muted">{{i18n 'dapp.feed.text.feed.subHeader'}}</small>
+                            <table class="table table panel-body"  style="margin-top: 20px;">
+                                <tbody>
+                                    <tr><td class="text-center bg-light-gray"><h3 style="display: inline-block; text-transform: lowercase; margin: 0px;">{{price}} ether</h3>/month</td></tr>
+                                    <tr><td class="text-center">{{i18n 'dapp.feed.text.feed.feature_1' duration}}</td></tr>
+                                    <tr><td class="text-center">{{i18n 'dapp.feed.text.feed.feature_2'}}</td></tr>
+                                    <tr><td class="text-center">{{i18n 'dapp.feed.text.feed.feature_3' feed.denomination}}</td></tr>
+                                    <tr><td class="text-center">{{i18n 'dapp.feed.text.feed.feature_4' feed.frequency}}</td></tr>
+                                    <tr><td class="text-center">{{i18n 'dapp.feed.text.feed.feature_5'}}</td></tr>
+                                    <tr><td class="text-center">{{i18n 'dapp.feed.text.feed.feature_6'}}</td></tr>
+                                </tbody>
+                            </table>
+                            
+                            <a href="#subscribe_today" class="page-scroll form-control btn-xl" style="line-height: 15px; min-height: 50px;">{{i18n 'dapp.app.buttons.subscribeToday'}}</a>
+                        </div>
+                    </div> <!-- /. details panel -->   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">{{i18n 'dapp.about.text.header'}}</h2>
+                    <h3 class="section-subheading text-muted">{{i18n 'dapp.about.text.subHeader'}}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="images/about/1.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>{{i18n 'dapp.about.text.about_1.date'}}</h4>
+                                    <h4 class="subheading">{{i18n 'dapp.about.text.about_1.header'}}</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">{{i18n 'dapp.about.text.about_1.story'}}</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="images/about/2.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>{{i18n 'dapp.about.text.about_2.date'}}</h4>
+                                    <h4 class="subheading">{{i18n 'dapp.about.text.about_2.header'}}</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">{{i18n 'dapp.about.text.about_2.story'}}</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4>{{{i18n 'dapp.about.text.footer'}}}</h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Aside -->
+    <!--<aside class="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="images/logos/envato.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="images/logos/designmodo.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="images/logos/themeforest.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="images/logos/creative-market.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </aside>-->
+    
+    {{> components_subscribe}}
+    
+    {{> components_contact}}
+</template>

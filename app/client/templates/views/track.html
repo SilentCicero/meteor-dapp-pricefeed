@@ -1,0 +1,44 @@
+<template name="views_track">
+    <div class="container no-padding">
+        <div class="row-fluid" style="margin-top:80px;">
+            <div class="col-md-6">
+                <h2 style="margin-bottom: 20px;">{{i18n 'dapp.track.text.header'}}</h2>
+                {{#if enddate_unix}}
+                <p>{{i18n 'dapp.track.text.subHeader'}}</p>
+                <h4 style="margin-top: 20px;">{{i18n 'dapp.app.headers.address'}}</h4>
+                <pre style="padding: 20px;"><strong>{{_address}}</strong></pre>
+                <hr/>
+                <h4 class="inline">{{i18n 'dapp.app.headers.status'}}:</h4>
+                {{#if $eq status 'active'}}
+                <h4 class="inline text-success no-weight text-uppercase">{{status}}</h4>
+                {{else}}
+                <h4 class="inline text-danger no-weight text-uppercase">{{status}}</h4>
+                {{/if}}
+                <hr/>
+                <h4>{{i18n 'dapp.app.headers.subscriptionEnds'}}</h4>
+                <h4 class="text-info no-weight">{{enddate}}</h4>
+                <h5 class="nice-gray" style="margin-top: 15px;"><span class="no-weight">UNIX</span> {{enddate_unix}}</h5>
+                {{else}}
+                <h4 class="text-danger text-lowercase">{{i18n 'dapp.track.text.invalid'}}</h4>
+                {{/if}}
+            </div>
+            <div class="col-md-6">
+                {{#if enddate_unix}}
+                <h3>{{i18n 'dapp.app.headers.renewSubscription'}}</h3>
+                {{#if $.Session.get 'renewed'}}
+                <p>{{i18n 'dapp.track.text.renewed'}}</p>
+                {{else}}
+                <p>{{i18n 'dapp.track.text.renew'}}</p>
+                <input type="button" value="{{i18n 'dapp.app.buttons.renew'}}" id="renew" class="inline btn btn-primary btn-lg" />
+                {{/if}}
+                {{/if}}
+                <!--<hr />
+                <h3>Subscribe Another Address</h3>
+                <p>If you would like to subscribe another address, you can do so below.</p>
+                <input type="text" placeholder="Address" id="subscription_address" class="form-control" style="padding: 20px;">
+                <br>
+                <input type="button" value="Subscribe" id="renew" class="inline btn btn-primary btn-lg" />-->
+            </div>
+        </div>
+    </div>
+</template>

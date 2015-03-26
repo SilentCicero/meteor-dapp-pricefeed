@@ -1,0 +1,176 @@
+{
+	"dapp": {
+		"app": {
+			"title": "Gold Price Today"
+			, "buttons": {                
+                "admin": "Admin"
+                , "services": "Services"
+                , "feed": "Feed"
+                , "about": "About"
+                , "contact": "Contact"
+                
+				, "checkSubscription": "Check Subscription"
+                , "subscribe": "Subscribe"
+                , "subscribeToday": "Subscribe Today"
+                , "kill": "Kill PriceFeed Contract"
+				, "update": "Update"
+                , "payout": "Payout to Address"
+				, "deploy": "Deploy PriceFeed Contact"
+				, "renew": "Renew This Address"
+			}
+			, "headers": {
+				"identicon": "Identicon"
+				, "address": "Address"
+				, "balance": "Balance"
+				, "account": "Account"
+				, "solidity": "Solidity Code"
+				, "coinbase": "Coinbase"
+				, "defaultBlock": "Default Block"
+				, "mining": "Mining"
+				, "gasPrice": "Gas Price"
+				, "hex": "Hex"
+                , "price": "Price"
+                , "subscribers": "Subscribers"
+                , "denomination": "Denomination"
+                , "frequency": "Frequency"
+                , "duration": "Duration"
+                , "inDays": "In days"
+				, "ourContract": "Our Solidity Contract"
+				, "txhash": "Transaction Hash"
+				, "exampleContract": "Example Contract"
+				, "daysPostPayment": "Days Post Payment"
+				, "renewSubscription": "Renew Subscription"
+				, "subscriptionEnds": "Ends"
+				, "status": "Status"
+				, "current": "Feed Current"
+			}
+            , "placeholders": {
+                "subscriptionPrice": "Subscription Price (e.g. 1 ether)"   
+                , "subscriptionDuration": "Subscription Duration"   
+                , "subscriptionAddress": "Subscription Address"   
+                , "payoutAddress": "Payout Address"
+				, "contractAddress": "Contract Address"
+            }
+			, "copyright": "Copyright © Gold Price Today 2015. All Rights Reserved"
+		}
+		, "components": {
+            
+			"deployment": {
+                "header": "Deployment"
+                , "description": "Manually deploy a PriceFeed contract too the blockchain. Note, this is for setup purposes."
+				, "helper": "Your contract has been deployed to this address. Use this, to set the <strong>address</strong> variable in <strong>client/lib/feedConfig.js</strong>"
+            }
+            , "subscriptionSettings": {
+                "header": "Subscription Settings"
+                , "description": "Manage subscription duration and price. "
+            }
+            , "checkSubscription": {
+                "header": "Check Subscription"
+                , "description": "Check to see if address is a subscription, this can be used for support. "
+				, "subscribed": "This address is subscribed."
+				, "timeout": "Times out:"
+            }
+            , "killFeed": {
+                "header": "Kill Feed"
+                , "description": "Kill the current pricefeed contract. Warning: this should only be used for testing purposes. Killing the contract will stop all contract functionality and storage. "
+            }
+            , "feedInfo": {
+                "header": "Feed Info"
+                , "description": ""
+            }
+            , "balance": {
+                "header": "Your Balance"
+                , "description": "Ether earned from operating the feed. "
+                , "payout": "Payout your balance (the ether you have earned operating the feed) to a specific address."
+				, "earned": "Ether earned from subscriptions to your feed."
+            }
+		}
+        , "landing": {
+			"title": "A Trust-Based Gold Price Feed"
+			, "defaultName": "Welcome"
+            , "text": {
+                "header": "Trusted Gold Prices Daily"   
+                , "subHeader": "A price-feed for smart contracts"
+            }
+		}        
+	   , "services": {
+            "text": {
+                "header": "Services"   
+                , "subHeader": "Our array of services."
+				, "data": {
+					"header": "Trusted Price Data"
+					, "description": "Gold Price Today provides world-class gold price feed data in USD denominations for use in Ethereum smart contracts."
+				}
+				, "reliable": {
+					"header": "Reliable & Secure"
+					, "description": "We are constantly monitoring our feed infrastructure to ensure reliable and accurate price data is delivered to your smart contracts."
+				} 
+				, "subscription": {
+					"header": "Subscription Based"
+					, "description": "Our price feed is subscription based which means you subscribe to it one every month, instead of paying-per-use."
+				}
+            }
+		}
+        , "feed": {
+            "text": {
+                "contract": {
+                    "header": "Contract Details"
+                    , "subHeader": "These are our contract details, and some examples of our contract in use."
+                }
+                , "feed": {
+                    "header": "Feed Details"
+                    , "subHeader": "Perfect for small budget smart contracts"
+                    , "feature_1": "%s Day Duration post Payment"
+                    , "feature_2": "Track Subscription Status" 
+                    , "feature_3": "Data in %s Units"
+                    , "feature_4": "Updated %s"
+                    , "feature_5": "Dedicated Maitenance Staff"
+                    , "feature_6": "Subscription Renewable"
+                }
+            }
+		}
+        , "about": {
+            "text": {
+                "header": "About"
+                , "subHeader": "A little bit about our company."
+                , "about_1": {
+                    "date": "2014-2015",
+                    "header": "Our Humble Beginnings",
+                    "story": "Gold Price Today was originally conceptualized as a open-source, fully transparent gold price feed platform, on which any price feeds could be built."
+                }
+                , "about_2": {
+                    "date": "March 2015",
+                    "header": "An Agency is Born",
+                    "story": "We started the project in March of 2015 to meet the demand of accurate gold prices for Ethereum smart contracts and financial instruments."
+                }
+                , "footer": "Be Part<br> Of Our<br> Story!"
+            }
+		}
+        , "subscribe": {
+            "text": {
+                "header": "Subscribe Today!",
+                "subHeader": "days of access for only",
+                "msg": "This is the address that will be calling our contract.",
+				"thankyou": "Thank You for Subscribing!",
+				"helper": "You can track your price feed subscription by going too (it may take a moment to be processed):"               
+            }
+		}
+        , "track": {
+            "text": {
+                "header": "Track Subscription",
+                "subHeader": "Below is your subscription status and end date.",
+                "invalid": "Invalid or non-existant subscription address",
+				"renewed": "Thank you, your subscription has been renewed.",
+				"renew": "You can renew your subscription at any time, by clicking 'Renew This Address'."               
+            }
+		}
+		, "admin": {
+			"title": "Admin"
+			, "defaultName": "Admin"
+            , "text": {
+                "header": "Welcome To Your Dashboard"
+				, "current": "Feed Current"
+            }
+		}
+	}
+}

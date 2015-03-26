@@ -1,0 +1,23 @@
+<template name="views_admin">
+    <div class="container no-padding">
+        {{> components_dashbar}}
+        <div class="clear-fix"></div>
+        <div class="row-fluid">
+            <div class="col-md-6">
+                {{> components_deployment}}
+                
+                {{> components_subscriptionSettings}}
+
+                {{> components_checkSubscription}}
+            </div>
+            <div class="col-md-6">
+                
+                {{> components_balance}}                
+
+                {{> components_feedInfo}}
+                
+                {{> components_killFeed}}
+            </div>
+        </div>
+    </div>    
+</template>

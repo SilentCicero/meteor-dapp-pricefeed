@@ -1,0 +1,18 @@
+<template name="components_subscriptionSettings">
+    <div class="panel panel-default panel-dapp">
+        <div class="panel-heading">{{i18n 'dapp.components.subscriptionSettings.header'}}</div>
+        <div class="panel-body">
+            <small>{{i18n 'dapp.components.subscriptionSettings.description'}}</small>
+            <br>
+            <label>{{i18n 'dapp.app.headers.price'}}</label>
+            <input type="text" value="{{$.Session.get 'price'}}" class="form-control" placeholder="{{i18n 'dapp.app.placeholders.subscriptionPrice'}}" id="subscription_price">
+            <br>
+            <label>{{i18n 'dapp.app.headers.duration'}}</label>
+            <small class="text-muted">({{i18n 'dapp.app.headers.inDays'}})</small> 
+            <input type="text" class="form-control" placeholder="{{i18n 'dapp.app.placeholders.subscriptionDuration'}}" value="{{$.Session.get 'duration'}}" id="subscription_duration">
+            <br>
+
+            <input type="button" id="update_subscription" class="btn btn-lg" value="{{i18n 'dapp.app.buttons.update'}}" />                
+        </div>
+    </div>
+</template>

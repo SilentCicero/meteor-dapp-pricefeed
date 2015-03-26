@@ -1,0 +1,15 @@
+<template name="components_feedInfo">
+    <div class="panel panel-default panel-dapp">
+        <div class="panel-heading">{{i18n 'dapp.components.feedInfo.header'}}</div>
+        <table class="table table-bordered panel-body">
+            <tbody>
+                <tr><td>{{i18n 'dapp.app.headers.price'}}</td> <td>{{$.Session.get 'price'}} ether</td></tr>
+                <tr><td>{{i18n 'dapp.app.headers.duration'}}</td> <td>{{duration}} {{i18n 'dapp.app.headers.daysPostPayment'}}</td></tr>
+                <tr><td>{{i18n 'dapp.app.headers.subscribers'}}</td> <td>{{subscribers}}</td></tr>
+                <tr><td>{{i18n 'dapp.app.headers.denomination'}}</td> <td>{{feed.denomination}}</td></tr>
+                <tr><td>{{i18n 'dapp.app.headers.frequency'}}</td> <td>{{feed.frequency}}</td></tr>
+                <tr><td>{{i18n 'dapp.app.headers.address'}}</td> <td>{{feed.address}}</td></tr>
+            </tbody>
+        </table>
+    </div>
+</template>
