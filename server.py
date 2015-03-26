@@ -12,7 +12,7 @@ SET_FUNCTION = '60fe47b1'
 # The Data Source URl for your Price Feed
 DATA_URL = "https://www.quandl.com/api/v1/datasets/BUNDESBANK/BBK01_WT5511.json?trim_start=2015-03-14"
 # The Frequency (in seconds) that data will be pulled and the feed updated.
-FREQUENCY = 30
+FREQUENCY = 3600
 # The JSON RPC URL to your Ethereum node
 JSON_RPC_URL = 'http://172.16.170.128:8545/'
 
