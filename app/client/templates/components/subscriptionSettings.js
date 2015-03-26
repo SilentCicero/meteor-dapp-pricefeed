@@ -25,17 +25,18 @@ Template['components_subscriptionSettings'].events({
     */
 
     'click #update_subscription': function(){
+        var price = $('#subscription_price').val();
+        var duration = $('#subscription_duration').val();
         if($('#subscription_price').val() != Session.get('price')){
-            console.log($('#subscription_price').val());
-            Feed.setPrice($('#subscription_price').val());  
+            Feed.setPrice(price);  
             Session.set('price', price);
         }
         
         if($('#subscription_period').val() != Session.get('duration')){
             Feed.setDuration($('#subscription_duration').val());
-            Session.set('duration', period);  
+            Session.set('duration', duration);
         }
         
-        console.log('Update Subscription', $('#subscription_price').val(), $('#subscription_period').val());
+        console.log('Update Subscription', price, duration);
     },
 });
