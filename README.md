@@ -7,11 +7,9 @@ A MeteorJS price feed DApp - for operating price feeds on Ethereum.
 
 ## <a name="installation"></a> Installation
 
-1. Clone this repo
+Clone this repo
 
   `git clone http://github.com/SilentCicero/meteor-dapp-pricefeed.git`
-
-## <a name="deployment"></a> Deployment
 
 Start an eth node open the http://localhost:3000 in *mist*, *mix* or *alethzero* or run a CPP node as follows:
 
