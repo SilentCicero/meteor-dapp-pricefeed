@@ -152,14 +152,14 @@
                 "subHeader": "days of access for only",
                 "msg": "This is the address that will be calling our contract.",
 				"thankyou": "Thank You for Subscribing!",
-				"helper": "You can track your price feed subscription by going too (it may take a moment to be processed):"               
+				"helper": "You can track your price feed subscription by going too (it may take a moment to be processed through mining):"               
             }
 		}
         , "track": {
             "text": {
                 "header": "Track Subscription",
                 "subHeader": "Below is your subscription status and end date.",
-                "invalid": "Invalid or non-existant subscription address",
+                "invalid": "Invalid, unmined or non-existant subscription address",
 				"renewed": "Thank you, your subscription has been renewed.",
 				"renew": "You can renew your subscription at any time, by clicking 'Renew This Address'."               
             }
